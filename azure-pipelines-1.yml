@@ -1,0 +1,24 @@
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'SonarCloud'
+    organization: 'snodin'
+    projectKey: 'snodin_microservicio-spring'
+    projectName: 'microservicio-spring'
+    scannerMode: 'Other'
+  displayName: 'SonarCloud Prepare'
+
+- task: Gradle@3
+  inputs:
+    gradleWrapperFile: 'gradlew'
+    tasks: 'sonarqube'
+    publishJUnitResults: false
+    javaHomeOption: 'JDKVersion'
+    sonarQubeRunAnalysis: true
+    sqGradlePluginVersionChoice: 'specify'
+    sonarQubeGradlePluginVersion: '3.3'
+    spotBugsAnalysis: false
