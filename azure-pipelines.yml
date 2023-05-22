@@ -10,7 +10,7 @@ steps:
     projectKey: 'snodin_microservicio-spring'
     projectName: 'microservicio-spring'
     scannerMode: 'Other'
-  #displayName:'SonarCloud PrepareSS'
+  displayName:'SonarCloud Prepare'
 
 - task: Gradle@3
   inputs:
